@@ -94,6 +94,14 @@ main{
     background-color: rgb(114, 173, 233)
 }
 
+.red{
+    background-color: red;
+}
+
+.event-none{
+    pointer-events: none;
+}
+
 /* FOOTER */
 
 footer{

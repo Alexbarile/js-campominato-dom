@@ -32,16 +32,24 @@ function createGrid(bomb, cellNumber, cellRow){
     for(let i=0; i<cellNumber; i++){
         const square = createElementGrid(i+1, cellRow);
         
-        // aggiungo la funzione quando schiaccio sulla casella cambia colore
+        // aggiungo la funzione quando schiaccio sulla casella cambia colore (azzurro)
     
         square.addEventListener('click', function(){
-            this.classList.toggle('clicked');
+            this.classList.add('clicked');
             // console.log(`Hai selezionato il numero ${this.innerText}`)
 
             // creata condizione che quando becco una bomba esce un alert
 
             if(bomb.includes(parseInt(this.innerText))){
+
+                // creo il this per cambio colore (rosso) quando esce una bomba
+
+                this.classList.add('red');
                 alert(`Hai selezionato una bomba ${this.innerText}`);
+
+                // associo alla griglia la funzione che non si può fare più nulla dopo una bomba
+
+                grid.classList.add('event-none');
 
             }
 
