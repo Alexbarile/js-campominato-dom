@@ -39,6 +39,7 @@ function createGrid(cellNumber, cellRow){
 
         grid.appendChild(square);
     }
+    
 }
 
 
@@ -49,6 +50,9 @@ button.addEventListener('click', function(){
 
     let difficult = document.getElementById('level').value;
 
+    let arrayBomb = [];
+
+
     let cellNumber;
     let cellRow;
 
@@ -56,37 +60,47 @@ button.addEventListener('click', function(){
         case 'Easy':
             cellNumber = 100;
             cellRow = 10;
-
-            // richiamo funzione createGrid
-
-            createGrid(cellNumber, cellRow);
             break;
         case 'Medium':
             cellNumber = 81;
             cellRow = 9; 
-
-            // richiamo funzione createGrid
-
-            createGrid(cellNumber, cellRow);
             break;
         case 'Hard':
             cellNumber = 49;
             cellRow = 7;
-
-            // richiamo funzione createGrid
-
-            createGrid(cellNumber, cellRow);
             break;
         default:
             cellNumber = 100;
             cellRow = 10;
-
-            // richiamo funzione createGrid
-
-            createGrid(cellNumber, cellRow);
             break;
     }
+
+    arrayBomb = createArrayBomb(1, cellNumber);
+    console.log(arrayBomb);
+
+    // richiamo funzione createGrid
+    
+    createGrid(cellNumber, cellRow);
+
+    
 });
 
 
 
+// funzione che genera numeri casuali
+
+function createArrayBomb(min, max){
+    let bomb = [];
+    let i = 0;
+    while(i < 16){
+        let numberRandom = Math.floor(Math.random() * (max - min +1)+ min);
+        if(!bomb.includes(numberRandom)){
+            bomb.push(numberRandom);
+            i++;
+        }
+
+    }
+    return bomb;
+
+
+}
