@@ -50,9 +50,7 @@ function createGrid(bomb, cellNumber, cellRow){
                 // associo alla griglia la funzione che non si può fare più nulla dopo una bomba
 
                 grid.classList.add('event-none');
-
             }
-
         });
     
         // creo un figlio di grid
@@ -100,7 +98,6 @@ button.addEventListener('click', function(){
     // richiamo funzione createGrid
     
     createGrid(arrayBomb, cellNumber, cellRow);
-
 });
 
 
@@ -116,7 +113,6 @@ function createArrayBomb(min, max){
             bomb.push(numberRandom);
             i++;
         }
-
     }
     return bomb;
 }
