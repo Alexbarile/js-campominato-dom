@@ -1,5 +1,7 @@
 // ESERIZIO BASE
 
+// creo funzione per contenuto della griglia
+
 function createElementGrid(number, cellRow){
 
     // creo un div con una classe specifica
@@ -13,7 +15,9 @@ function createElementGrid(number, cellRow){
     return element;
 }
 
-function createGrid(cellNumber, cellRow){
+// creo funzione per griglia
+
+function createGrid(bomb, cellNumber, cellRow){
 
     let grid = document.getElementById('grid');
     
@@ -32,14 +36,21 @@ function createGrid(cellNumber, cellRow){
     
         square.addEventListener('click', function(){
             this.classList.toggle('clicked');
-            console.log(`Hai selezionato il numero ${this.innerText}`)
+            // console.log(`Hai selezionato il numero ${this.innerText}`)
+
+            // creata condizione che quando becco una bomba esce un alert
+
+            if(bomb.includes(parseInt(this.innerText))){
+                alert(`Hai selezionato una bomba ${this.innerText}`);
+
+            }
+
         });
     
         // creo un figlio di grid
 
         grid.appendChild(square);
     }
-    
 }
 
 
@@ -80,9 +91,8 @@ button.addEventListener('click', function(){
 
     // richiamo funzione createGrid
     
-    createGrid(cellNumber, cellRow);
+    createGrid(arrayBomb, cellNumber, cellRow);
 
-    
 });
 
 
@@ -101,6 +111,7 @@ function createArrayBomb(min, max){
 
     }
     return bomb;
-
-
 }
+
+
+
