@@ -29,28 +29,38 @@ function createGrid(bomb, cellNumber, cellRow){
 
     // creo il ciclo for con i numeri
 
+    let cont = 0;
+
     for(let i=0; i<cellNumber; i++){
         const square = createElementGrid(i+1, cellRow);
         
         // aggiungo la funzione quando schiaccio sulla casella cambia colore (azzurro)
-    
+
         square.addEventListener('click', function(){
             this.classList.add('clicked');
             // console.log(`Hai selezionato il numero ${this.innerText}`)
 
+            // creo contatore per punteggio
+
+            cont++;
+            
             // creata condizione che quando becco una bomba esce un alert
-
+            
             if(bomb.includes(parseInt(this.innerText))){
-
+                
                 // creo il this per cambio colore (rosso) quando esce una bomba
-
+                
                 this.classList.add('red');
-                alert(`Hai selezionato una bomba ${this.innerText}`);
+                alert(`Hai selezionato la bomba ${this.innerText}`);
 
+                // mostro il punteggio fatto dopo che esce la bomba
+            
+                document.getElementById('point').innerHTML = `Il tuo punteggio è: ${cont-1}`;
+           
                 // associo alla griglia la funzione che non si può fare più nulla dopo una bomba
 
                 grid.classList.add('event-none');
-            }
+            }  
         });
     
         // creo un figlio di grid
@@ -93,13 +103,12 @@ button.addEventListener('click', function(){
     }
 
     arrayBomb = createArrayBomb(1, cellNumber);
-    console.log(arrayBomb);
+    console.log(arrayBomb)
 
     // richiamo funzione createGrid
     
     createGrid(arrayBomb, cellNumber, cellRow);
 });
-
 
 
 // funzione che genera numeri casuali
