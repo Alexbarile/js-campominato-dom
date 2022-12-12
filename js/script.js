@@ -56,7 +56,7 @@ function createGrid(bomb, cellNumber, cellRow){
                 
                 // mostrare tutte le bombe 
 
-                showAllBombs(bomb);
+                // showAllBombs(bomb);
             
                 // mostro il punteggio fatto dopo che esce la bomba
             
@@ -130,7 +130,7 @@ button.addEventListener('click', function(){
       const cells = document.getElementsByClassName('square');
       for (let i=0; i < cells.length; i++){
           let cell = cells[i];
-          if(bombs_array.includes(cell.innerText)){
+          if(bombs_array.includes(parseInt(cell.innerText))){
               cell.classList.add('clicked');
               cell.classList.add('red');
          }
