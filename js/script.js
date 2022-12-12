@@ -54,7 +54,7 @@ function createGrid(bomb, cellNumber, cellRow){
                 
                 alert(`Hai selezionato la bomba ${this.innerText}`);
                 
-                // mostrare tutte le bombe 
+                // richiamo la funzione per mostrare tutte le bombe 
 
                 showAllBombs(bomb);
             
