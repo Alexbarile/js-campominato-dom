@@ -52,7 +52,7 @@ function createGrid(bomb, cellNumber, cellRow){
                 
                 this.classList.add('red');
                 
-                alert(`Hai selezionato la bomba ${this.innerText}`);
+                alert(`BOOM! Hai preso una bomba ${this.innerText}`);
                 
                 // richiamo la funzione per mostrare tutte le bombe 
 
