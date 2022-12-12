@@ -56,7 +56,7 @@ function createGrid(bomb, cellNumber, cellRow){
                 
                 // mostrare tutte le bombe 
 
-                // showAllBombs(bomb);
+                showAllBombs(bomb);
             
                 // mostro il punteggio fatto dopo che esce la bomba
             
