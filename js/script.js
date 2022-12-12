@@ -51,7 +51,12 @@ function createGrid(bomb, cellNumber, cellRow){
                 // creo il this per cambio colore (rosso) quando esce una bomba
                 
                 this.classList.add('red');
+                
                 alert(`Hai selezionato la bomba ${this.innerText}`);
+                
+                // mostare tutte le bombe 
+
+                // showAllBombs(bombs_array);
 
                 // mostro il punteggio fatto dopo che esce la bomba
             
@@ -110,6 +115,17 @@ button.addEventListener('click', function(){
     createGrid(arrayBomb, cellNumber, cellRow);
 });
 
+// funzione per mostrare le bombe
+
+// function showAllBombs(bombs_array){
+//      const cells = document.getElementById('square');
+//      for (let i=0; i < cells.length; i++);
+//      let cell = cells[i];
+//      if(bombs_array.includes(parseInt(cell.innerText))){
+//          cell.classList.add('clicked');
+//          cell.classList.add('red');
+//     }
+//  }
 
 // funzione che genera numeri casuali
 
