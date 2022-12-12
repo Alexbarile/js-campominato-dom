@@ -15,9 +15,15 @@ function createElementGrid(number, cellRow){
     return element;
 }
 
+// creo contatore per punteggio
+
+let cont = 0;
+
 // creo funzione per griglia
 
 function createGrid(bomb, cellNumber, cellRow){
+
+    cont = 0;
 
     let grid = document.getElementById('grid');
     
@@ -29,8 +35,6 @@ function createGrid(bomb, cellNumber, cellRow){
 
     // creo il ciclo for con i numeri
 
-    let cont = 0;
-
     for(let i=0; i<cellNumber; i++){
         const square = createElementGrid(i+1, cellRow);
         
@@ -39,10 +43,6 @@ function createGrid(bomb, cellNumber, cellRow){
         square.addEventListener('click', function(){
             this.classList.add('clicked');
             // console.log(`Hai selezionato il numero ${this.innerText}`)
-
-            // creo contatore per punteggio
-
-            cont++;
             
             // creata condizione che quando becco una bomba esce un alert
             
@@ -54,25 +54,34 @@ function createGrid(bomb, cellNumber, cellRow){
                 
                 alert(`Hai selezionato la bomba ${this.innerText}`);
                 
-                // mostare tutte le bombe 
+                // mostrare tutte le bombe 
 
-                // showAllBombs(bombs_array);
-
+                showAllBombs(bomb);
+            
                 // mostro il punteggio fatto dopo che esce la bomba
             
-                document.getElementById('point').innerHTML = `Il tuo punteggio è: ${cont-1}`;
+                document.getElementById('point').innerHTML = `Il tuo punteggio è: ${cont}`;
            
                 // associo alla griglia la funzione che non si può fare più nulla dopo una bomba
 
                 grid.classList.add('event-none');
             }  
+            else{
+                cont++
+            }
         });
-    
+
         // creo un figlio di grid
 
         grid.appendChild(square);
     }
 }
+
+// mostro il punteggio quando schiaccio il pulsante
+
+// document.getElementById('point').addEventListener('click', function(){
+//     this.innerHTML = `Il tuo punteggio è: ${cont}`;
+// })
 
 
 // BONUS
@@ -115,17 +124,19 @@ button.addEventListener('click', function(){
     createGrid(arrayBomb, cellNumber, cellRow);
 });
 
-// funzione per mostrare le bombe
+//  funzione per mostrare le bombe
 
-// function showAllBombs(bombs_array){
-//      const cells = document.getElementById('square');
-//      for (let i=0; i < cells.length; i++);
-//      let cell = cells[i];
-//      if(bombs_array.includes(parseInt(cell.innerText))){
-//          cell.classList.add('clicked');
-//          cell.classList.add('red');
-//     }
-//  }
+ function showAllBombs(bombs_array){
+      const cells = document.getElementsByClassName('square');
+      for (let i=0; i < cells.length; i++){
+          let cell = cells[i];
+          if(bombs_array.includes(cell.innerText)){
+              cell.classList.add('clicked');
+              cell.classList.add('red');
+         }
+
+      };
+  }
 
 // funzione che genera numeri casuali
 
