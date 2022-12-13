@@ -106,8 +106,12 @@ main{
 }
 
 .red{
-    /* background-color: red;   */
-    background-image: url("bomba.png");  
+    background-color: red;
+    background-image: url("../img/bomba.png");  
+    background-size: contain;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .event-none{
