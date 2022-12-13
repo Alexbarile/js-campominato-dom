@@ -106,7 +106,8 @@ main{
 }
 
 .red{
-    background-color: red;    
+    /* background-color: red;   */
+    background-image: url("bomba.png");  
 }
 
 .event-none{
